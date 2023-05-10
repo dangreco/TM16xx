@@ -3,7 +3,7 @@ extern crate esp_idf_hal as hal;
 use anyhow::*;
 use esp_idf_sys as _;
 use hal::{delay, gpio::*, peripherals::Peripherals};
-use tm16xx::{models::TM1628, tm16xx::*};
+use tm16xx::prelude::*;
 
 const FONT: &[u8; 16] = &[
   0b00111111, // 0
