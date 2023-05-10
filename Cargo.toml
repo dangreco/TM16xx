@@ -1,0 +1,23 @@
+[package]
+edition = "2021"
+name = "tm16xx"
+description = "Embedded drivers for TM16xx display controllers."
+version = "0.1.0"
+license = "MIT"
+license-file = "LICENSE"
+authors = ["Dan Greco <dan.greco@live.com>"]
+keywords = ["tm16xx", "embedded", "tm1628"]
+categories = ["embedded"]
+documentation = "https://docs.rs/crate/tm16xx"
+homepage = "https://github.com/dangreco/tm16xx"
+repository = "https://github.com/dangreco/tm16xx"
+
+[dependencies]
+anyhow = "1.0.71"
+embedded-hal = "0.2.7"
+
+[features]
+default = []
+
+# Device-specific features
+tm1628 = []
