@@ -1,5 +1,5 @@
 extern crate embedded_hal as hal;
 
-pub mod models;
+mod models;
 pub mod prelude;
-pub mod tm16xx;
+mod tm16xx;
