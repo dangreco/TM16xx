@@ -2,7 +2,7 @@
 edition = "2021"
 name = "tm16xx"
 description = "Embedded drivers for TM16xx display controllers."
-version = "0.1.0"
+version = "0.1.1"
 license = "MIT"
 license-file = "LICENSE"
 authors = ["Dan Greco <dan.greco@live.com>"]
