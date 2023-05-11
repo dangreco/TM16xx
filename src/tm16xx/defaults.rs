@@ -65,7 +65,7 @@ where
   }
 
   driver.send_data(display, data)?;
-  driver.state.displays[display as usize] = data;
+  driver.state.displays[display as usize] = data as u16;
 
   Ok(())
 }

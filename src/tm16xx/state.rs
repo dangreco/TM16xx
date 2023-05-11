@@ -1,7 +1,7 @@
 pub struct State {
   pub active: bool,
   pub intensity: u8,
-  pub displays: Vec<u8>,
+  pub displays: Vec<u16>,
 }
 
 impl State {

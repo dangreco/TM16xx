@@ -1,9 +1,9 @@
 use anyhow::Result;
 use hal::{blocking::delay::DelayUs, digital::v2::OutputPin};
 
+pub mod defaults;
 mod driver;
 mod state;
-pub mod defaults;
 
 pub use driver::TM16xxDriver;
 pub use state::State;
@@ -28,6 +28,17 @@ where
   fn setup(&mut self, active: bool, intensity: u8) -> Result<()>;
   fn clear(&mut self) -> Result<()>;
   fn set_segments(&mut self, display: u8, data: u8) -> Result<()>;
+}
+
+pub trait TM16xx16<D, DIO, CLK, STB>
+where
+  Self: Sized,
+  D: DelayUs<u32>,
+  DIO: OutputPin,
+  CLK: OutputPin,
+  STB: OutputPin,
+{
+  fn set_segments_16(&mut self, display: u8, data: u16) -> Result<()>;
 }
 
 #[derive(Debug)]

@@ -44,3 +44,25 @@ where
     defaults::set_segments(&mut self.0, display << 1, data)
   }
 }
+
+impl<D, DIO, CLK, STB> TM16xx16<D, DIO, CLK, STB> for TM1628<D, DIO, CLK, STB>
+where
+  D: DelayUs<u32>,
+  DIO: OutputPin,
+  CLK: OutputPin,
+  STB: OutputPin,
+{
+  fn set_segments_16(&mut self, display: u8, data: u16) -> anyhow::Result<()> {
+    if display >= Self::MAX_DISPLAYS {
+      // DO SOMETHING
+    }
+
+    let (a0, a1) = (display << 1, (display << 1) | 1);
+    let (b0, b1) = ((data as u8) & 0xFF, ((data >> 8) as u8) & 0x30);
+
+    self.0.send_data(a0, b0)?;
+    self.0.send_data(a1, b1)?;
+
+    Ok(())
+  }
+}
