@@ -43,6 +43,10 @@ where
   fn set_segments(&mut self, display: u8, data: u8) -> anyhow::Result<()> {
     defaults::set_segments(&mut self.0, display << 1, data)
   }
+
+  fn get_state(&self) -> &State {
+    &self.0.state
+  }
 }
 
 impl<D, DIO, CLK, STB> TM16xx16<D, DIO, CLK, STB> for TM1628<D, DIO, CLK, STB>

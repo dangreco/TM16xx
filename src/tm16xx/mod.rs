@@ -28,6 +28,7 @@ where
   fn setup(&mut self, active: bool, intensity: u8) -> Result<()>;
   fn clear(&mut self) -> Result<()>;
   fn set_segments(&mut self, display: u8, data: u8) -> Result<()>;
+  fn get_state(&self) -> &State;
 }
 
 pub trait TM16xx16<D, DIO, CLK, STB>
