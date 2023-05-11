@@ -41,7 +41,14 @@ where
   }
 
   fn set_segments(&mut self, display: u8, data: u8) -> anyhow::Result<()> {
-    defaults::set_segments(&mut self.0, display << 1, data)
+    if display >= Self::MAX_DISPLAYS {
+      // DO SOMETHING
+    }
+  
+    self.0.send_data(display << 1, data)?;
+    self.0.state.displays[display as usize] = data as u16;
+  
+    Ok(())
   }
 
   fn get_state(&self) -> &State {
